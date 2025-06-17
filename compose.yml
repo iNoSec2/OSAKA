@@ -65,10 +65,6 @@ services:
         ipv4_address: 172.18.0.23
     restart: always
 
-volumes:
-  db:
-    driver: local
-
 networks:
   net:
     driver: bridge
