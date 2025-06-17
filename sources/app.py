@@ -1,4 +1,5 @@
 import os
+import secrets
 from main import main
 from flask_assets import Environment, Bundle
 from flask import Flask, flash, request, redirect, render_template
@@ -12,7 +13,7 @@ UPLOAD_FOLDER = pwd + "/uploads"
 ALLOWED_EXTENSIONS = {'zip'}
 
 app = Flask(__name__)
-app.secret_key = "super secret key"
+app.secret_key = secrets.token_hex(32)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 env = Environment(app)
 js = Bundle('js/clarity-icons.min.js', 'js/clarity-icons-api.js',
